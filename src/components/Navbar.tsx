@@ -39,7 +39,7 @@ const Navbar = () => {
 
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-          showBanner ? "top-[38px]" : "top-0"
+          showBanner ? "top-[28px] sm:top-[32px]" : "top-0"
         } ${
           scrolled
             ? "bg-gradient-maroon shadow-maroon py-2"
