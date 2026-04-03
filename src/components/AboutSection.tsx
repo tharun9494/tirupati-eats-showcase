@@ -1,4 +1,5 @@
 import { Utensils, Users, IndianRupee } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const highlights = [
   {
@@ -26,7 +27,7 @@ const AboutSection = () => (
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
     <div className="container mx-auto max-w-5xl relative z-10">
-      <div className="text-center mb-16">
+      <ScrollReveal className="text-center mb-16">
         <span className="inline-block text-primary text-xs font-bold tracking-[0.25em] uppercase mb-3">
           Our Story
         </span>
@@ -40,22 +41,21 @@ const AboutSection = () => (
           of Bhavani Nagar at Chenji Plaza, we serve authentic South Indian and North Indian
           meals for the whole family — starting at just ₹200.
         </p>
-      </div>
+      </ScrollReveal>
 
       <div className="grid sm:grid-cols-3 gap-5">
-        {highlights.map((h) => {
+        {highlights.map((h, i) => {
           const Icon = h.icon;
           return (
-            <div
-              key={h.title}
-              className="group bg-card rounded-2xl p-7 border border-border hover:border-primary/30 hover:shadow-maroon transition-all duration-500 hover:-translate-y-1"
-            >
-              <div className={`w-14 h-14 rounded-xl ${h.accent} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                <Icon className="w-6 h-6" />
+            <ScrollReveal key={h.title} delay={i * 0.15}>
+              <div className="group bg-card rounded-2xl p-7 border border-border hover:border-primary/30 hover:shadow-maroon transition-all duration-500 hover:-translate-y-1 h-full">
+                <div className={`w-14 h-14 rounded-xl ${h.accent} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-6 h-6" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground mb-2">{h.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{h.desc}</p>
               </div>
-              <h3 className="font-heading text-lg font-bold text-foreground mb-2">{h.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{h.desc}</p>
-            </div>
+            </ScrollReveal>
           );
         })}
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 import gallery1 from "@/assets/gallery-1.png";
 import gallery2 from "@/assets/gallery-2.png";
 import gallery3 from "@/assets/gallery-3.png";
@@ -28,7 +29,7 @@ const GallerySection = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-14">
+        <ScrollReveal className="text-center mb-14">
           <span className="inline-block text-accent text-sm font-bold tracking-[0.2em] uppercase mb-4">
             Visual Journey
           </span>
@@ -37,26 +38,31 @@ const GallerySection = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground">A Glimpse of Our Restaurant</p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[220px]">
           {images.map((img, i) => (
-            <div
+            <ScrollReveal
               key={i}
-              className={`${img.span} group relative rounded-2xl overflow-hidden cursor-pointer`}
-              onClick={() => setLightbox(i)}
+              delay={i * 0.08}
+              className={img.span}
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon-deep/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                <p className="text-primary-foreground text-sm font-medium">{img.alt}</p>
+              <div
+                className="group relative rounded-2xl overflow-hidden cursor-pointer h-full"
+                onClick={() => setLightbox(i)}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-deep/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-primary-foreground text-sm font-medium">{img.alt}</p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
