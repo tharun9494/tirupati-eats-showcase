@@ -34,8 +34,13 @@ const HeroSection = () => (
 
       <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-black text-primary-foreground leading-[1.1] mb-6">
         Manju Foods
-        <span className="block text-accent mt-2 text-3xl sm:text-4xl md:text-5xl font-bold italic">
-          Family Restaurant
+        <span className="block mt-3">
+          <span className="relative inline-block">
+            <span className="relative z-10 bg-gradient-to-r from-accent via-gold-light to-accent bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl font-bold italic animate-shimmer" style={{ backgroundSize: '200% auto' }}>
+              Family Restaurant
+            </span>
+            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent rounded-full" />
+          </span>
         </span>
       </h1>
 
