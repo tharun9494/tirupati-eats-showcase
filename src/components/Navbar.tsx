@@ -25,13 +25,14 @@ const Navbar = () => {
     <>
       {/* Demo Banner — distinct blue-gray so it doesn't mix with restaurant maroon/gold */}
       {showBanner && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-foreground text-primary-foreground text-xs font-medium text-center py-2.5 px-6 flex items-center justify-center gap-2">
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-foreground text-primary-foreground text-[10px] sm:text-xs font-medium text-center py-1.5 sm:py-2 px-4 sm:px-6 flex items-center justify-center gap-2">
           <Palette className="w-3.5 h-3.5 text-gold-light shrink-0 hidden sm:block" />
-          <span className="opacity-80">
-            Demo Website — All data, prices &amp; photos taken from your Google Maps listing. Final version will use your own photos &amp; can be updated anytime.
+          <span className="opacity-80 leading-tight">
+            <span className="hidden sm:inline">Demo Website — All data, prices &amp; photos taken from your Google Maps listing. Final version will use your own photos &amp; can be updated anytime.</span>
+            <span className="sm:hidden">🎨 Demo Website — Final version will use your own photos.</span>
           </span>
-          <button onClick={() => setShowBanner(false)} className="ml-2 text-primary-foreground/50 hover:text-primary-foreground shrink-0">
-            <X className="w-3.5 h-3.5" />
+          <button onClick={() => setShowBanner(false)} className="ml-1 text-primary-foreground/50 hover:text-primary-foreground shrink-0">
+            <X className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </button>
         </div>
       )}
