@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,44 @@
 
 @layer base {
   :root {
-    --background: 34 60% 96%;
-    --foreground: 0 0% 11%;
+    --background: 30 25% 97%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 11%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 11%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 24 72% 55%;
+    --primary: 350 65% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 34 60% 96%;
-    --secondary-foreground: 0 0% 11%;
+    --secondary: 30 25% 94%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 34 30% 92%;
+    --muted: 30 15% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 39 65% 48%;
+    --accent: 38 75% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 34 20% 88%;
-    --input: 34 20% 88%;
-    --ring: 24 72% 55%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 350 65% 35%;
 
     --radius: 0.75rem;
+
+    --maroon-deep: 350 70% 22%;
+    --maroon-rich: 350 65% 35%;
+    --maroon-light: 350 50% 45%;
+    --maroon-glow: 350 60% 55%;
+    --gold-warm: 38 75% 50%;
+    --gold-light: 42 80% 65%;
+    --cream: 35 40% 95%;
+    --cream-dark: 30 25% 90%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -67,4 +76,97 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
+}
+
+@layer utilities {
+  .text-gradient-maroon {
+    background: linear-gradient(135deg, hsl(350, 65%, 35%), hsl(350, 60%, 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(38, 75%, 50%), hsl(42, 80%, 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-maroon {
+    background: linear-gradient(135deg, hsl(350, 70%, 22%), hsl(350, 65%, 35%));
+  }
+
+  .bg-gradient-maroon-radial {
+    background: radial-gradient(ellipse at top, hsl(350, 65%, 35%), hsl(350, 70%, 22%));
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(180deg, hsl(35, 40%, 95%), hsl(30, 25%, 90%));
+  }
+
+  .shadow-maroon {
+    box-shadow: 0 10px 40px -10px hsl(350, 65%, 35%, 0.25);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 8px 30px -8px hsl(38, 75%, 50%, 0.3);
+  }
+
+  .border-gradient-maroon {
+    border-image: linear-gradient(135deg, hsl(350, 65%, 35%), hsl(38, 75%, 50%)) 1;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+  }
+
+  .glass-card {
+    background: hsla(0, 0%, 100%, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(0, 0%, 100%, 0.3);
+  }
+
+  .glass-dark {
+    background: hsla(350, 70%, 22%, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(350, 65%, 35%, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
